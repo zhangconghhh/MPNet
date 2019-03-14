@@ -1,6 +1,6 @@
 import numpy as np
 import tensorflow as tf
-import layers as L
+import MPNet.layers as L
 
 
 def model_fusion(net, keep_prob, data, training):

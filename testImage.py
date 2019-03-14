@@ -16,42 +16,37 @@ if __name__ == '__main__':
 
     # Choose the net to build
     if net_name == 'VGG_Fusion':
-        from vgg_fusion import *
+        from MPNet.vgg_fusion import *
+        model_path = './model/vgg_fusion'
 
-        model_path = '../icpr_model/vgg_fusion/vgg_fusion'
-        ouput_dim = 2
     elif net_name == 'VGG_2':
-        from vgg_2 import *
+        from MPNet.vgg_2 import *
+        model_path = './model/vgg_2'
 
-        model_path = '../icpr_model/vgg_2/vgg_2'
-        ouput_dim = 2
     elif net_name == 'VGG_3':
-        from vgg_3 import *
-        model_path = '../icpr_model/vgg_3/vgg_3 '
-        ouput_dim = 3
+        from MPNet.vgg_3 import *
+        model_path = './model//vgg_3 '
+
     elif net_name == 'VGG_3D':
-        from vgg_3D import *
+        from MPNet.vgg_3D import *
+        model_path = './model/vgg_3d'
 
-        model_path = '../icpr_model/vgg_3d/vgg_3d'
-        ouput_dim = 3
     elif net_name == 'VGG_2D':
-        from vgg_2D import *
+        from MPNet.vgg_2D import *
+        model_path = './model/vgg_2d'
 
-        model_path = '../icpr_model/vgg_2d/vgg_2d'
-        ouput_dim = 2
     elif net_name == 'VGG_2_dp':
-        from vggb_b import *
-        model_path = '../icpr_model/vgg_2_dp/vgg_2dp'
-        ouput_dim = 2
+        from MPNet.vggb_b import *
+        model_path = './model/vgg_2dp'
 
     # Normalization for the data
-    data_dict0 = np.load('x_pra.npz')
+    data_dict0 = np.load('./MPNet/'+'x_pra.npz')
     xx_mean = data_dict0['x_mean']
     xx_std = data_dict0['x_std']
 
     # Initialization for the tensor graph
     mean = tf.Variable(xx_mean, trainable=False)
-    std = tf.Variable(xx_std, trainable=False)
+    std = tf.Variable(xx_mean, trainable=False)
     learning_rate = tf.Variable(0.001, trainable=False)
     x = tf.placeholder(tf.float32, [None, 256, 1, 1])
     keep_prob = tf.placeholder(tf.float32)
