@@ -1,4 +1,4 @@
-from  trainSession import *
+from  MPNet.trainSession import *
 import  argparse
 
 # The training dataset is saved in the csv file
@@ -18,10 +18,9 @@ if __name__=='__main__':
    test_data = args.testData
    save_path = args.modelDir
    net_name = args.netName
-   flagForFintue = args.forFinetue
+   flagForFusion = args.forFinetue
 
    if flagForFusion:
-      score = trainFinetune(train_data, test_data,  model_name, save_path)
+      trainFinetune(train_data, test_data,  model_name, save_path)
    else:
-      score = trainInitial(train_data, test_data, model_name, save_path)
-   print score
+      trainInitial(train_data, test_data, model_name, save_path)

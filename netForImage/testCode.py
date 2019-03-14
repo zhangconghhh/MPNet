@@ -10,8 +10,8 @@ import random
 
 
 
-model_path = '../icpr_model/image_model/image_model'
-flie_dir = '../histogram/test.jpg'
+model_path = '../model/image_model'
+flie_dir = '../test.jpg'
 
 
 # Load Data

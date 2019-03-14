@@ -1,6 +1,6 @@
 import os
 import argparse
-from util_func import *
+from MPNet.util_func import *
 
 
 if __name__ == '__main__':
