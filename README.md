@@ -22,9 +22,15 @@ The structure of the folder is as following：
 ## Demon
 
 ### Running training
-You can run the train code with the following:
+For the proposed multi-stage training process, the model of the first two stage is the basic VGG model without branches. The last stage of the training is to combine the branches and conduct the multi-path model 
+
+For the first two model you can run the following code, and set the training flag in the conv layer for the fixed parameters.
 ```
-    python trainCode.py  --modelName='MPNet'  --trainData='TrainData.csv' --testData='TestData.csv' --modelDir='./model/' --forFusion=False
+    python trainCode.py  --modelName='VGG_2'  --trainData='TrainData.csv' --testData='TestData.csv' --modelDir='./model/' --forFusion=False
+```
+In the last stage, you can run the following code to conduct the multi-path models
+```
+    python trainCode.py  --modelName='MPNet'  --trainData='TrainData.csv' --testData='TestData.csv' --modelDir='./model/' --forFusion=True
 ```
 ### Running testing
 You can run the test code with the following:
